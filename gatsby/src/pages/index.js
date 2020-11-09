@@ -1,6 +1,5 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
 import {
   FaWordpress as Wordpress,
   FaCss3Alt as Css,
@@ -13,10 +12,10 @@ import {
   SiGatsby as Gatsby,
   SiGraphql as Graphql,
 } from 'react-icons/si';
+import JosePulido from '../assets/images/josepulido.jpg';
 
 import SEO from '../components/SEO';
 import { TwoGridSection } from '../styles/TwoGridSection';
-import { ImageJose } from '../styles/ImageJose';
 import { FirstTitle } from '../styles/FistTitle';
 import { ExperienceDiv } from '../styles/ExperienceDiv';
 import { SkillsGrid } from '../styles/SkillsGrid';
@@ -24,8 +23,11 @@ import { SkillsGrid } from '../styles/SkillsGrid';
 function Hero() {
   return (
     <div>
+      <SEO>
+        <title>Welcome to my Site</title>
+      </SEO>
       <TwoGridSection>
-        <ImageJose />
+        <JosePulido />
         <FirstTitle>
           <h1>I'm Jose Pulido.</h1>
           <h1>Web/Shopify developer.</h1>
