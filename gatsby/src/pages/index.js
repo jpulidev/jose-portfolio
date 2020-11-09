@@ -1,6 +1,5 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
 import {
   FaWordpress as Wordpress,
   FaCss3Alt as Css,
@@ -21,6 +20,7 @@ import Hero from '../components/HeroTitle';
 function Experience() {
   return (
     <div>
+      <Hero />
       <ExperienceDiv>
         <div>
           <h3>Experience</h3>
@@ -72,11 +72,10 @@ function Experience() {
 
 export default function HomePage() {
   return (
-    <div>
-      <Hero />
+    <>
       <div>
         <Experience />
       </div>
-    </div>
+    </>
   );
 }
