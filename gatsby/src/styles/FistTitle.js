@@ -25,6 +25,7 @@ export const FirstTitle = styled.div`
   @media screen and (max-width: 1000px) {
     left: 0px;
     top: 0px;
+    padding: 5%;
     h1 {
       font-size: 2em;
     }

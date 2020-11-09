@@ -8,4 +8,9 @@ export const TwoGridSection = styled.div`
   height: 700px;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media screen and (max-width: 1000px;) {
+    grid-template-columns: 1fr;
+    height: 100%;
+  }
 `;
