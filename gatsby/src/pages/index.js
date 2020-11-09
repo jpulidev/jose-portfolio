@@ -91,13 +91,8 @@ function Experience() {
 export default function HomePage() {
   return (
     <>
-      <SEO>
-        <title>Welcome 🥑</title>
-      </SEO>
-      <div>
-        <Hero />
-        <Experience />
-      </div>
+      <Hero />
+      <Experience />
     </>
   );
 }
