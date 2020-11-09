@@ -47,9 +47,19 @@ const InfoGrid = styled.div`
   justify-content: center;
   align-items: center;
   height: 600px;
+
+  @media (min-width: 1500px) and (max-width: 2560px) {
+    padding-bottom: 10%;
+  }
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: 1fr;
+  }
 `;
 const Story = styled.div`
   padding: 5%;
+  @media (min-width: 1500px) and (max-width: 2560px) {
+    margin-left: 30%;
+  }
   h1 {
     font-size: 4em;
     padding-bottom: 40px;

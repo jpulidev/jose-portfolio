@@ -6,4 +6,6 @@ export const TwoGridSection = styled.div`
   justify-content: center;
   align-items: center;
   height: 700px;
+  max-width: 1200px;
+  margin: 0 auto;
 `;

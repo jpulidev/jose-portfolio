@@ -28,4 +28,10 @@ export const ExperienceDiv = styled.div`
     padding: 9px 16px;
     background: var(--yellow);
   }
+  @media screen and (max-width: 1000px) {
+    padding: 7% 5%;
+    h1 {
+      font-size: 3em;
+    }
+  }
 `;

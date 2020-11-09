@@ -34,6 +34,12 @@ const NavStyles = styled.nav`
       background: var(--black);
     }
   }
+  @media screen and (max-width: 1000px) {
+    ul {
+      grid-template-columns: auto auto auto;
+      grid-gap: 15px;
+    }
+  }
 `;
 const FloatSocials = styled.div`
   position: absolute;
@@ -44,6 +50,11 @@ const FloatSocials = styled.div`
   z-index: 1;
   a {
     font-size: 15px;
+  }
+  @media screen and (max-width: 1000px) {
+    font-size: 1.4em;
+    text-align: right;
+    right: 15px;
   }
 `;
 

@@ -22,4 +22,11 @@ export const FirstTitle = styled.div`
     background: var(--yellow);
     color: var(--black);
   }
+  @media screen and (max-width: 1000px) {
+    left: 0px;
+    top: 0px;
+    h1 {
+      font-size: 2em;
+    }
+  }
 `;

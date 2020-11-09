@@ -29,6 +29,9 @@ const ProjectsStyles = styled.div`
       background: var(--yellow);
     }
   }
+  @media screen and (max-width: 1000px) {
+    margin: 0 auto;
+  }
 `;
 
 function countProjectsinWorks(works) {
