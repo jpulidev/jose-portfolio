@@ -20,13 +20,6 @@ const ProjectsGridOne = styled.div`
     font-size: 18px;
     letter-spacing: 2px;
   }
-  @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr;
-    h1 {
-      font-size: 2em;
-      max-width: 300px;
-    }
-  }
 `;
 const FilterDiv = styled.div`
   display: grid;

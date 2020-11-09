@@ -34,20 +34,12 @@ const FooterGridStyle = styled.div`
     list-style: none;
     padding: 5px;
   }
-  @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr;
-    text-align: center;
-    justify-content: center;
-  }
 `;
 const FlexSociales = styled.div`
   display: flex;
   gap: 50px;
   a {
     font-size: 1.6em;
-  }
-  @media screen and (max-width: 1000px) {
-    justify-content: center;
   }
 `;
 

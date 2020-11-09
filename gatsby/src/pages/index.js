@@ -60,15 +60,6 @@ const FirstTitle = styled.div`
     background: var(--yellow);
     color: var(--black);
   }
-  @media screen and (max-width: 1000px) {
-    left: 0px;
-    top: 0px;
-    text-align: center;
-    h1 {
-      font-size: 3em;
-      line-height: 1;
-    }
-  }
 `;
 const ExperienceDiv = styled.div`
   padding: 7% 0%;
@@ -98,12 +89,6 @@ const ExperienceDiv = styled.div`
     padding: 9px 16px;
     background: var(--yellow);
   }
-  @media screen and (max-width: 1000px) {
-    padding: 7% 3%;
-    h1 {
-      font-size: 4em;
-    }
-  }
 `;
 const SkillsGrid = styled.ul`
   display: grid;
@@ -115,10 +100,6 @@ const SkillsGrid = styled.ul`
   font-size: 3em;
   li {
     color: #8491a0;
-  }
-  @media screen and (max-width: 1000px) {
-    grid-template-columns: repeat(4, auto);
-    margin-left: -50px;
   }
 `;
 

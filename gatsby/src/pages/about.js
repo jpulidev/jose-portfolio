@@ -47,9 +47,6 @@ const InfoGrid = styled.div`
   justify-content: center;
   align-items: center;
   height: 600px;
-  @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr;
-  }
 `;
 const Story = styled.div`
   padding: 5%;
