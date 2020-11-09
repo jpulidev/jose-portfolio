@@ -11,4 +11,8 @@ export const SkillsGrid = styled.ul`
   li {
     color: #8491a0;
   }
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: repeat(4, auto);
+    margin-left: -50px;
+  }
 `;
