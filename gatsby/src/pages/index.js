@@ -14,94 +14,12 @@ import {
   SiGraphql as Graphql,
 } from 'react-icons/si';
 
-import jose from '../assets/images/josepulido.jpg';
 import SEO from '../components/SEO';
-
-const TwoGridSection = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  align-items: center;
-  height: 700px;
-  @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
-`;
-const ImageJose = styled.div`
-  background-image: url(${jose});
-  background-repeat: no-repeat;
-  height: 100%;
-  background-size: contain;
-  background-position: right;
-  @media screen and (max-width: 1000px) {
-    background-size: cover;
-  }
-`;
-const FirstTitle = styled.div`
-  position: relative;
-  left: -74px;
-  top: -84px;
-  h1 {
-    font-size: 4em;
-    line-height: 1;
-  }
-  p {
-    max-width: 550px;
-  }
-  a {
-    padding: 10px;
-    background: #8491a0;
-    color: #fff;
-    position: relative;
-    top: 14px;
-  }
-  a:hover {
-    background: var(--yellow);
-    color: var(--black);
-  }
-`;
-const ExperienceDiv = styled.div`
-  padding: 7% 0%;
-  background: #fcf2d4;
-  margin-top: 5%;
-  div {
-    max-width: 1056px;
-    margin: 0 auto;
-  }
-  h3 {
-    color: lightgray;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 900;
-  }
-  h1 {
-    font-size: 7em;
-    color: #8491a0;
-  }
-  p {
-    max-width: 400px;
-  }
-  .BtnProject {
-    text-align: center;
-  }
-  .BtnProject > a {
-    padding: 9px 16px;
-    background: var(--yellow);
-  }
-`;
-const SkillsGrid = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(8, auto);
-  gap: 5%;
-  list-style: none;
-  justify-content: center;
-  align-items: center;
-  font-size: 3em;
-  li {
-    color: #8491a0;
-  }
-`;
+import { TwoGridSection } from '../styles/TwoGridSection';
+import { ImageJose } from '../styles/ImageJose';
+import { FirstTitle } from '../styles/FistTitle';
+import { ExperienceDiv } from '../styles/ExperienceDiv';
+import { SkillsGrid } from '../styles/SkillsGrid';
 
 export default function HomePage() {
   return (
