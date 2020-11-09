@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const FirstTitle = styled.div`
-  position: relative;
-  left: -74px;
-  top: -84px;
   h1 {
     font-size: 4em;
     line-height: 1;
