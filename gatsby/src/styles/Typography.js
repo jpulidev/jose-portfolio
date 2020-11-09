@@ -1,9 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
+import font from '../assets/fonts/CutiveMono-Regular.ttf';
+
 const Typography = createGlobalStyle`
   @font-face {
     font-family: 'Cutive Mono';
-    
+    src: url(${font});
   }
    html {
     font-family: 'Cutive Mono';
