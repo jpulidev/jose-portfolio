@@ -5,5 +5,5 @@ export const TwoGridSection = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
   justify-content: center;
   align-items: center;
-  padding: 5%;
+  height: 700px;
 `;
