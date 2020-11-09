@@ -14,32 +14,10 @@ import {
   SiGraphql as Graphql,
 } from 'react-icons/si';
 
-import SEO from '../components/SEO';
-import { TwoGridSection } from '../styles/TwoGridSection';
-import { ImageJose } from '../styles/ImageJose';
-import { FirstTitle } from '../styles/FistTitle';
 import { ExperienceDiv } from '../styles/ExperienceDiv';
 import { SkillsGrid } from '../styles/SkillsGrid';
+import Hero from '../components/HeroTitle';
 
-function Hero() {
-  return (
-    <div>
-      <TwoGridSection>
-        <ImageJose />
-        <FirstTitle>
-          <h1>I'm Jose Pulido.</h1>
-          <h1>Web/Shopify developer.</h1>
-          <p>
-            I build amazing tailor-made shopify stores. And i can make a really
-            great Guacamole 🥑.
-            <br /> If you have a design i can make it come to life.
-          </p>
-          <Link href="mailto:josecpulidoo@gmail.com">Let's work together</Link>
-        </FirstTitle>
-      </TwoGridSection>
-    </div>
-  );
-}
 function Experience() {
   return (
     <div>
@@ -95,9 +73,7 @@ function Experience() {
 export default function HomePage() {
   return (
     <div>
-      <div>
-        <Hero />
-      </div>
+      <Hero />
       <div>
         <Experience />
       </div>
