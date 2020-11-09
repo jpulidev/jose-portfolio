@@ -90,9 +90,13 @@ function Experience() {
 
 export default function HomePage() {
   return (
-    <>
-      <Hero />
-      <Experience />
-    </>
+    <div>
+      <div>
+        <Hero />
+      </div>
+      <div>
+        <Experience />
+      </div>
+    </div>
   );
 }
