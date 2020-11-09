@@ -3,7 +3,7 @@ import React from 'react';
 import { FirstTitle } from '../styles/FistTitle';
 import { TwoGridSection } from '../styles/TwoGridSection';
 import SEO from './SEO';
-import JoseImage from '../assets/images/josepulido.jpg';
+import homeimage from '../assets/images/josepulido.jpg';
 
 export default function Hero() {
   return (
@@ -12,7 +12,7 @@ export default function Hero() {
         <title>Welcome to mi site 🥑.</title>
       </SEO>
       <TwoGridSection>
-        <JoseImage />
+        <img src={homeimage} alt="Jose Pulido" />
         <FirstTitle>
           <h1>I'm Jose Pulido.</h1>
           <h1>Web/Shopify developer.</h1>
