@@ -16,7 +16,6 @@ import {
 
 import SEO from '../components/SEO';
 import { TwoGridSection } from '../styles/TwoGridSection';
-import { ImageJose } from '../styles/ImageJose';
 import { FirstTitle } from '../styles/FistTitle';
 import { ExperienceDiv } from '../styles/ExperienceDiv';
 import { SkillsGrid } from '../styles/SkillsGrid';
@@ -25,7 +24,6 @@ function Hero() {
   return (
     <div>
       <TwoGridSection>
-        <ImageJose />
         <FirstTitle>
           <h1>I'm Jose Pulido.</h1>
           <h1>Web/Shopify developer.</h1>
