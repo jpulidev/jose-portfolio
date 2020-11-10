@@ -10,6 +10,7 @@ export default function Hero() {
     <div>
       <SEO>
         <title>Welcome to mi site 🥑.</title>
+        <meta property="og:image" content={homeimage} />
       </SEO>
       <TwoGridSection>
         <img src={homeimage} alt="Jose Pulido" />
