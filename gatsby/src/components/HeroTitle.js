@@ -9,8 +9,7 @@ export default function Hero() {
   return (
     <div>
       <SEO>
-        <title>Welcome 🥑.</title>
-        <meta property="og:image" content={homeimage} />
+        <title>Welcome 🥑</title>
       </SEO>
       <TwoGridSection>
         <img src={homeimage} alt="Jose Pulido" />

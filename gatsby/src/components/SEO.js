@@ -20,7 +20,7 @@ export default function SEO({ children, location, description, title, image }) {
       <html lang="en" />
       <title>{title}</title>
       {/* Fav icons */}
-      <link rel="icon" type="image/svg+xml" href="/Group.svg" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
       {/* <link rel="alternate icon" href="/favicon.ico" /> */}
       {/* Metatags */}
       <meta name="viewport" content="width=device-width,initial-scale=1.0" />
