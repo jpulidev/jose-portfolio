@@ -48,7 +48,7 @@ export default function ProjectPage({ data, pageContext }) {
       <ProjectsGridOne>
         <div>
           <h3>MY PROJECTS</h3>
-          <h1>Works that I've done in the past years</h1>
+          <h1>Work that I've done in the past years</h1>
         </div>
         <FilterDiv>
           <ProjectsFilter activeProject={pageContext.project} />
