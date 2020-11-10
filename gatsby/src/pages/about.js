@@ -72,7 +72,7 @@ export default function AboutPage({ data }) {
   return (
     <>
       <SEO>
-        <title>About Me</title>
+        <title>About Me 🥑</title>
       </SEO>
       <InfoGrid>
         <Story>

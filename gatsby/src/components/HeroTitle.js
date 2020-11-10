@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <div>
       <SEO>
-        <title>Welcome to mi site 🥑.</title>
+        <title>Welcome 🥑.</title>
         <meta property="og:image" content={homeimage} />
       </SEO>
       <TwoGridSection>
