@@ -9,6 +9,7 @@ export default {
     siteUrl: 'https://gatsby.portfolio',
     description: 'Fullstack Developer',
     twitter: '@jpulidev',
+    image: './src/assets/images/josepulido.jpg', // Path to your image you placed in the 'static' folder
   },
   plugins: [
     'gatsby-plugin-react-helmet',
