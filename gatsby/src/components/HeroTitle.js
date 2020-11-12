@@ -1,11 +1,16 @@
 import { Link } from 'gatsby';
-import React from 'react';
+import React, { useEffect } from 'react';
+import Aos from 'aos/dist/aos.cjs';
 import { FirstTitle } from '../styles/FistTitle';
 import { TwoGridSection } from '../styles/TwoGridSection';
 import SEO from './SEO';
 import homeimage from '../assets/images/josepulido.jpg';
+import 'aos/dist/aos.css';
 
 export default function Hero() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <div>
       <SEO>
@@ -13,7 +18,7 @@ export default function Hero() {
       </SEO>
       <TwoGridSection>
         <img src={homeimage} alt="Jose Pulido" />
-        <FirstTitle>
+        <FirstTitle dtat-aos="fade-up">
           <h1>I'm Jose Pulido.</h1>
           <h1>Web/Shopify developer.</h1>
           <p>
