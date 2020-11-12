@@ -13,11 +13,16 @@ import {
   SiGraphql as Graphql,
 } from 'react-icons/si';
 
+import Aos from 'aos/dist/aos.cjs';
 import { ExperienceDiv } from '../styles/ExperienceDiv';
 import { SkillsGrid } from '../styles/SkillsGrid';
 import Hero from '../components/HeroTitle';
+import 'aos/dist/aos.css';
 
 function Experience() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <div>
       <Hero />
@@ -34,31 +39,33 @@ function Experience() {
           </p>
         </div>
         <div>
-          <div>My Skills</div>
+          <div data-aos="fade-up" data-aos-delay="800">
+            My Skills
+          </div>
           <SkillsGrid>
             <li>
-              <Shopify />
+              <Shopify data-aos="fade-right" data-aos-delay="1000" />
             </li>
             <li>
-              <Wordpress />
+              <Wordpress data-aos="fade-up" data-aos-delay="1200" />
             </li>
             <li>
-              <Css />
+              <Css data-aos="fade-up" data-aos-delay="1400" />
             </li>
             <li>
-              <Javascript />
+              <Javascript data-aos="fade-up" data-aos-delay="1600" />
             </li>
             <li>
-              <Reactjs />
+              <Reactjs data-aos="fade-up" data-aos-delay="1800" />
             </li>
             <li>
-              <Node />
+              <Node data-aos="fade-up" data-aos-delay="2000" />
             </li>
             <li>
-              <Gatsby />
+              <Gatsby data-aos="fade-up" data-aos-delay="2200" />
             </li>
             <li>
-              <Graphql />
+              <Graphql data-aos="fade-left" data-aos-delay="2400" />
             </li>
           </SkillsGrid>
           <div className="BtnProject">
