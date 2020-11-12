@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import AOS from 'aos';
 import { FirstTitle } from '../styles/FistTitle';
 import { TwoGridSection } from '../styles/TwoGridSection';
 import SEO from './SEO';
@@ -13,7 +14,7 @@ export default function Hero() {
       </SEO>
       <TwoGridSection>
         <img src={homeimage} alt="Jose Pulido" />
-        <FirstTitle>
+        <FirstTitle data-aos="fade-in">
           <h1>I'm Jose Pulido.</h1>
           <h1>Web/Shopify developer.</h1>
           <p>
@@ -27,3 +28,10 @@ export default function Hero() {
     </div>
   );
 }
+AOS.init({
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 1000, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+});
