@@ -43,29 +43,29 @@ function Experience() {
             My Skills
           </div>
           <SkillsGrid>
-            <li>
-              <Shopify data-aos="fade-right" data-aos-delay="1000" />
+            <li data-aos="fade-right" data-aos-delay="1000">
+              <Shopify />
             </li>
-            <li>
-              <Wordpress data-aos="fade-up" data-aos-delay="1200" />
+            <li data-aos="fade-up" data-aos-delay="1200">
+              <Wordpress />
             </li>
-            <li>
-              <Css data-aos="fade-up" data-aos-delay="1400" />
+            <li data-aos="fade-up" data-aos-delay="1400">
+              <Css />
             </li>
-            <li>
-              <Javascript data-aos="fade-up" data-aos-delay="1600" />
+            <li data-aos="fade-up" data-aos-delay="1600">
+              <Javascript />
             </li>
-            <li>
-              <Reactjs data-aos="fade-up" data-aos-delay="1800" />
+            <li data-aos="fade-up" data-aos-delay="1800">
+              <Reactjs />
             </li>
-            <li>
-              <Node data-aos="fade-up" data-aos-delay="2000" />
+            <li data-aos="fade-up" data-aos-delay="2000">
+              <Node />
             </li>
-            <li>
-              <Gatsby data-aos="fade-up" data-aos-delay="2200" />
+            <li data-aos="fade-up" data-aos-delay="2200">
+              <Gatsby />
             </li>
-            <li>
-              <Graphql data-aos="fade-left" data-aos-delay="2400" />
+            <li data-aos="fade-left" data-aos-delay="2400">
+              <Graphql />
             </li>
           </SkillsGrid>
           <div className="BtnProject">
