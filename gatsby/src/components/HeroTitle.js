@@ -18,7 +18,7 @@ export default function Hero() {
       </SEO>
       <TwoGridSection>
         <img src={homeimage} alt="Jose Pulido" />
-        <FirstTitle dtat-aos="fade-up">
+        <FirstTitle data-aos="fade-up" data-aos-delay="50">
           <h1>I'm Jose Pulido.</h1>
           <h1>Web/Shopify developer.</h1>
           <p>
