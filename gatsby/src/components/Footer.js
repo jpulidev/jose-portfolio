@@ -91,7 +91,7 @@ export default function Footer() {
         &copy; Jose Pulido Dev {new Date().getFullYear()}
         <br />
         <Link to="https://github.com/jpulidev">
-          Designed width <Figma /> Built with <Gatsby /> Find code in
+          Designed with <Figma /> Built with <Gatsby /> Find code in
           <span>
             <Github />
           </span>
