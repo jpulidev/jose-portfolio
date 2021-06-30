@@ -34,7 +34,7 @@ function Experience() {
           <p>
             Currently working as a Shopify Developer in{' '}
             <span>
-              <Link to="https://www.genium.io/">Genium.io</Link>
+              <Link to="https://thetaproom.com/">The Taproom</Link>
             </span>
           </p>
         </div>
