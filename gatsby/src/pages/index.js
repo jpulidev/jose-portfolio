@@ -32,9 +32,9 @@ function Experience() {
           <h1>05 years</h1>
           <h2>Working as a Fullstack Developer</h2>
           <p>
-            Currently working as a Shopify Developer in{' '}
+            Currently working as a Shopify Developer at{' '}
             <span>
-              <Link to="https://thetaproom.com/">The Taproom</Link>
+              <Link to="https://thetaproom.com/pages/about">The Taproom</Link>
             </span>
           </p>
         </div>
