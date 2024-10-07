@@ -22,9 +22,9 @@ export default function Hero() {
           <h1>I'm Jose Pulido.</h1>
           <h1>Web/Shopify developer.</h1>
           <p>
-            I build amazing tailor-made shopify stores. And i can make a really
-            great Guacamole 🥑.
-            <br /> If you have a design i can make it come to life.
+          I specialize in creating tailor-made Shopify stores that perfectly match your vision. Whether you have a design in mind or need help bringing your ideas to life,
+          <br></br> 
+          I’m here to make it happen—oh, and I make a pretty mean guacamole, too! 🥑 Let’s build something amazing together.
           </p>
           <Link href="mailto:josecpulidoo@gmail.com">Let's work together</Link>
         </FirstTitle>
