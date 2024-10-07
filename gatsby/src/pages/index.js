@@ -29,12 +29,12 @@ function Experience() {
       <ExperienceDiv>
         <div>
           <h3>Experience</h3>
-          <h1>06 years</h1>
+          <h1>08 years</h1>
           <h2>Fullstack Developer</h2>
           <p>
-            Currently working as a Shopify Developer -  {' '}
+            Currently working as a Fullstack - Shopify Developer  {' '}
             <span>
-              <Link to="https://sellry.com/">Sellry</Link>
+              <Link to="https://petstable.mx/">Pet's Table 🐶 </Link>
             </span>
           </p>
         </div>
