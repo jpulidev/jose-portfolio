@@ -1,2 +1,67 @@
 [build]
   functions = "functions/"
+
+# ---------------------------------------------------------------------------
+# Node version
+#
+# Nothing pinned this before, so the build used whatever Netlify defaulted to.
+# The last successful deploy was October 2024; Netlify's default has moved on
+# to Node 20/22 since, and Gatsby 2.24 does not build on those. An unpinned
+# build now would fail — Netlify keeps the previous deploy live when that
+# happens, so the site wouldn't break, but nothing would ship either.
+#
+# Node 16 rather than 14: 14 has no darwin-arm64 build at all, so it cannot run
+# on Apple Silicon, and 16 is the last release whose OpenSSL 1.1.1 avoids the
+# webpack 4 hash failure that breaks this build on Node 17+. Verified locally —
+# `gatsby build` completes on 16.20.2, and `gatsby/.nvmrc` pins it.
+#
+# ⚠️ Netlify may no longer offer Node 16 on its current build image. If the
+# deploy fails for that reason, don't keep digging: the replacement front end in
+# web/ runs on Node 22 and is what should be deployed instead.
+# ---------------------------------------------------------------------------
+[build.environment]
+  NODE_VERSION = "16"
+
+# ---------------------------------------------------------------------------
+# Caching
+#
+# Every asset was previously served with `max-age=0, must-revalidate`, so the
+# browser revalidated all ~370 KB of JS, the CSS and the hero photo on every
+# single visit. Filenames already carry a content hash, which is exactly the
+# case where a long immutable cache is safe: a changed file gets a new name.
+#
+# Rule of thumb below: hashed assets are immutable; anything the build can
+# overwrite in place (HTML, page-data JSON) must always be revalidated.
+# ---------------------------------------------------------------------------
+
+# Default: never trust a cached copy. Overridden by the more specific rules
+# below, and deliberately correct for HTML.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    cache-control = "public, max-age=0, must-revalidate"
+
+# Content-hashed JavaScript bundles (/app-093d942b….js, /framework-9d64….js).
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    cache-control = "public, max-age=31536000, immutable"
+
+# Content-hashed stylesheet (/styles.ab30739b….css).
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    cache-control = "public, max-age=31536000, immutable"
+
+# Hashed images, fonts and other files Gatsby emits to /static.
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    cache-control = "public, max-age=31536000, immutable"
+
+# NOT immutable: Gatsby rewrites these in place on every build, keeping the
+# same filenames. Caching them would serve stale content against fresh HTML.
+[[headers]]
+  for = "/page-data/*"
+  [headers.values]
+    cache-control = "public, max-age=0, must-revalidate"

@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import rectangle from '../assets/images/Rectangle.jpg';
 import SEO from '../components/SEO';
+import { yearsOfExperience } from '../config/career';
 
 const StaffGrid = styled.div`
   display: grid;
@@ -66,24 +67,25 @@ const Story = styled.div`
   }
 `;
 
-export default function AboutPage({ data }) {
+export default function AboutPage({ data, location }) {
   const staff = data.staff.nodes;
 
   return (
     <>
-      <SEO>
-        <title>About Me 🥑</title>
-      </SEO>
+      <SEO
+        title="About"
+        description="How a litigation lawyer from Venezuela became a fullstack developer — the short version of Jose Pulido's story."
+        pathname={location && location.pathname}
+      />
       <InfoGrid>
         <Story>
           <h1>My Story</h1>
           <p>
-            Hi, I'm Jose Pulido, I'm a Fullstack developer from 🇻🇪, I'm 33 years
-            old and I have been making websites for the past 5 years, I used to
-            make a living as a lawyer☠️ in litigation, I left everything behind
-            when I started with this coding adventure. My wife introduced me to
-            this amazing journey and i haven't stop learning every day since
-            then.
+            Hi, I'm Jose Pulido, a fullstack developer from 🇻🇪. I've been
+            building for the web for {yearsOfExperience()} years. Before that I
+            made a living as a litigation lawyer ☠️ — I left it behind when my
+            wife introduced me to this coding adventure, and I haven't stopped
+            learning a day since.
           </p>
         </Story>
         <div>
@@ -92,7 +94,7 @@ export default function AboutPage({ data }) {
       </InfoGrid>
       <StaffGrid>
         {staff.map((person) => (
-          <StaffStyles>
+          <StaffStyles key={person.id}>
             <h2>
               <span className="mark">{person.name}</span>
             </h2>

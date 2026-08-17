@@ -34,16 +34,22 @@ const FilterDiv = styled.div`
   background: #fbf0d1;
 `;
 
-export default function ProjectPage({ data, pageContext }) {
+export default function ProjectPage({ data, pageContext, location }) {
   const project = data.project.nodes;
   return (
     <>
       <SEO
         title={
           pageContext.project
-            ? `Projects With ${pageContext.project}`
-            : `All Projects`
+            ? `${pageContext.project} projects`
+            : `Projects`
         }
+        description={
+          pageContext.project
+            ? `Client websites, stores and web applications Jose Pulido has built using ${pageContext.project} — part of a portfolio of 24 shipped projects.`
+            : `Selected web and Shopify projects built by Jose Pulido — client stores, marketing sites and web applications.`
+        }
+        pathname={location && location.pathname}
       />
       <ProjectsGridOne>
         <div>

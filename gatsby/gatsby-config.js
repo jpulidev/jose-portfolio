@@ -1,15 +1,21 @@
-// This file is empty, but some people were reporting that it would not start unless they had an empty file. So here it is! You can delete the comment. Or replace it with your favourite shania twain lyrics.
 import dotenv from 'dotenv';
 
 dotenv.config({ path: '.env' });
 
 export default {
   siteMetadata: {
-    title: `JPulidev Portfolio`,
-    siteUrl: 'https://gatsby.portfolio',
-    description: 'Fullstack Developer',
+    // Brand name. Appended to every page title by src/components/SEO.js.
+    title: `Jose Pulido`,
+    // Used for the home page, and as the fallback whenever a page sets no title.
+    defaultTitle: `Jose Pulido — Fullstack Developer`,
+    // Real origin. Every absolute URL (canonical, og:url, og:image) derives from this.
+    siteUrl: 'https://jpulidev.com',
+    description:
+      'Jose Pulido — fullstack developer specialising in web applications and Shopify storefronts, built with JavaScript, React, Node and Liquid.',
     twitter: '@jpulidev',
-    image: './src/assets/images/josepulido.jpg', // Path to your image you placed in the 'static' folder
+    // Social share card, resolved to an absolute URL in SEO.js.
+    // TODO: replace with a purpose-built 1200x630 card (this one is only 204x132).
+    image: '/laptopcode.png',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
