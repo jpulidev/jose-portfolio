@@ -1,0 +1,257 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens.
+ *
+ * These values are mirrored in `lib/theme.ts`, and `lib/theme.test.ts` asserts
+ * both that they match and that every pair meets its WCAG minimum. Change a
+ * colour here without changing it there and the test fails — which is the point.
+ *
+ * Three theme states, not two: an explicit choice stamps data-theme on <html>,
+ * and the default "system" setting stamps nothing, so only prefers-color-scheme
+ * separates light from dark. Every colour is defined at token level in all
+ * three, so no element can render one theme's text on the other's ground.
+ */
+
+:root {
+  --ground: #fbfbf9;
+  --surface: #f2f3f0;
+  --ink: #121714;
+  --ink-muted: #55605a;
+  --line: #dcdfd9;
+  --line-strong: #7b857f;
+  --accent: #14603c;
+  --accent-ink: #ffffff;
+  --accent-soft: #e4efe8;
+
+  /* Type scale — a fifth-ish ratio, capped so headings stay set rather than
+   * ballooning. Fluid between 380px and 1200px viewports. */
+  --step--1: clamp(0.83rem, 0.81rem + 0.1vw, 0.88rem);
+  --step-0: clamp(1rem, 0.96rem + 0.18vw, 1.09rem);
+  --step-1: clamp(1.2rem, 1.13rem + 0.34vw, 1.4rem);
+  --step-2: clamp(1.44rem, 1.32rem + 0.58vw, 1.8rem);
+  --step-3: clamp(1.73rem, 1.53rem + 0.94vw, 2.31rem);
+  --step-4: clamp(2.07rem, 1.76rem + 1.5vw, 2.96rem);
+  --step-5: clamp(2.49rem, 2rem + 2.32vw, 3.8rem);
+
+  --measure: 68ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --ground: #0b0f0d;
+    --surface: #151b18;
+    --ink: #e8eee9;
+    --ink-muted: #9aa8a0;
+    --line: #28322d;
+    --line-strong: #57665f;
+    --accent: #5fd39b;
+    --accent-ink: #06231a;
+    --accent-soft: #122a20;
+  }
+}
+
+:root[data-theme='dark'] {
+  --ground: #0b0f0d;
+  --surface: #151b18;
+  --ink: #e8eee9;
+  --ink-muted: #9aa8a0;
+  --line: #28322d;
+  --line-strong: #57665f;
+  --accent: #5fd39b;
+  --accent-ink: #06231a;
+  --accent-soft: #122a20;
+}
+
+@theme inline {
+  /* Injected by next/font in app/layout.tsx, which self-hosts, subsets and
+   * preloads each face and sets font-display: swap. The old site declared
+   * @font-face inside a styled-components global, so the browser could not even
+   * discover the font until React had hydrated. */
+  --font-display: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --color-ground: var(--ground);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+
+  --text-step--1: var(--step--1);
+  --text-step-0: var(--step-0);
+  --text-step-1: var(--step-1);
+  --text-step-2: var(--step-2);
+  --text-step-3: var(--step-3);
+  --text-step-4: var(--step-4);
+  --text-step-5: var(--step-5);
+}
+
+html {
+  /* No element may push the page sideways. All three pages of the old site
+   * overflowed at 375px; this plus fluid grids keeps that from recurring. */
+  overflow-x: hidden;
+  /* Stops the layout jumping as page height changes between routes. */
+  scrollbar-gutter: stable;
+}
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings and interface elements take the grotesque; running prose keeps the
+ * serif. One monospace face for everything is what dated the old site — here
+ * mono is reserved for data that lines up: metrics, counts, URLs. */
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+/* Uppercase micro-labels need the tracking back. */
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.measure {
+  max-width: var(--measure);
+}
+
+/* A focus ring that is visible on every surface in both themes. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+/* --- Theme toggle -------------------------------------------------------- */
+
+/*
+ * The active option is selected by an attribute the inline script in the layout
+ * sets before first paint, not by React state.
+ *
+ * Driving it from state meant the server rendered "system" and the client
+ * corrected it on hydration, so the highlight visibly jumped on every page
+ * load — the same class of flash the inline script exists to prevent. This way
+ * the correct option is highlighted in the very first frame.
+ */
+[data-theme-choice='light'] [data-choice='light'],
+[data-theme-choice='dark'] [data-choice='dark'],
+[data-theme-choice='system'] [data-choice='system'],
+/* No attribute means the script has not run (JS disabled); "system" is what
+ * the page is actually doing, so highlight that. */
+:root:not([data-theme-choice]) [data-choice='system'] {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* --- Motion -------------------------------------------------------------- */
+
+/* Content is visible by default and animation only ever adds to it. The old
+ * site inverted this: AOS started elements at opacity 0, so scrolling briskly
+ * past the skills row left a permanently empty gap. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-rise {
+  animation: rise 320ms cubic-bezier(0.2, 0.6, 0.2, 1) backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Print ---------------------------------------------------------------- */
+
+/*
+ * Tuned for the CV page, since "Save as PDF" is how a recruiter gets a file to
+ * forward. Forces the light palette regardless of theme (dark backgrounds waste
+ * ink and print grey), drops chrome, and keeps sections off page breaks.
+ */
+@media print {
+  :root,
+  :root[data-theme='dark'] {
+    --ground: #ffffff;
+    --surface: #ffffff;
+    --ink: #000000;
+    --ink-muted: #333333;
+    --line: #cccccc;
+    --line-strong: #999999;
+    --accent: #000000;
+    --accent-ink: #ffffff;
+    --accent-soft: #ffffff;
+  }
+
+  body {
+    background: #ffffff;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  /* Site chrome is navigation, and navigation does not print. */
+  header.site-chrome,
+  footer.site-chrome {
+    display: none !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  li,
+  section {
+    break-inside: avoid;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  /* Entrance animation has nothing to do on paper. */
+  .animate-rise {
+    animation: none !important;
+  }
+}
