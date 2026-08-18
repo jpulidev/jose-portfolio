@@ -59,10 +59,17 @@ typings/
 
 # dotenv environment variable files
 .env*
+# …except templates, which document what configuration is needed.
+!.env.example
 
-# gatsby files
-.cache/
-public
+# gatsby files (scoped: an unscoped `public` rule also swallowed web/public,
+# which in Next.js holds source assets rather than build output)
+gatsby/.cache/
+gatsby/public/
+
+# next.js — see web/.gitignore for the rest
+web/.next/
+web/out/
 
 # Mac files
 .DS_Store

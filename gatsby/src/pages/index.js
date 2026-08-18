@@ -17,6 +17,8 @@ import Aos from 'aos/dist/aos.cjs';
 import { ExperienceDiv } from '../styles/ExperienceDiv';
 import { SkillsGrid } from '../styles/SkillsGrid';
 import Hero from '../components/HeroTitle';
+import SEO from '../components/SEO';
+import { yearsOfExperience } from '../config/career';
 import 'aos/dist/aos.css';
 
 function Experience() {
@@ -29,7 +31,7 @@ function Experience() {
       <ExperienceDiv>
         <div>
           <h3>Experience</h3>
-          <h1>08 years</h1>
+          <h1>{yearsOfExperience()} years</h1>
           <h2>Fullstack Developer</h2>
           <p>
             Currently working as a Fullstack - Shopify Developer  {' '}
@@ -77,9 +79,11 @@ function Experience() {
   );
 }
 
-export default function HomePage() {
+export default function HomePage({ location }) {
   return (
     <>
+      {/* Title/description come from siteMetadata.defaultTitle — see SEO.js. */}
+      <SEO pathname={location && location.pathname} />
       <div>
         <Experience />
       </div>

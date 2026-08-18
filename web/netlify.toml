@@ -1,0 +1,117 @@
+# Netlify config for the Next.js front end.
+#
+# Kept on Netlify deliberately: jpulidev.com already points there, so replacing
+# the Gatsby build means changing this site's settings rather than moving DNS.
+#
+# In the Netlify UI, set the site's **base directory** to `web`. Netlify then
+# reads this file, and `publish`/`command` below are relative to it.
+#
+# The official Next.js runtime handles the App Router, image optimisation, and
+# the /contact server action — it turns them into Netlify Functions
+# automatically, so nothing here needs to know about that.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next 16 requires 20.9+; 22 is current LTS and what the app is developed on.
+  NODE_VERSION = "22"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# ---------------------------------------------------------------------------
+# Caching
+#
+# Unlike the Gatsby site — which served every asset with `max-age=0` — the Next
+# runtime sets correct headers for hashed assets on its own. These two rules
+# only cover what it does not: the public/ directory.
+# ---------------------------------------------------------------------------
+
+[[headers]]
+  for = "/jose-pulido.jpg"
+  [headers.values]
+    cache-control = "public, max-age=31536000, immutable"
+
+# ---------------------------------------------------------------------------
+# Security headers
+#
+# No CSP yet: the site loads no third-party scripts today, but adding analytics
+# (see LAUNCH.md) would need one written at the same time, and a CSP that is
+# wrong is worse than none.
+# ---------------------------------------------------------------------------
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # No camera, mic or geolocation is used anywhere.
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# ---------------------------------------------------------------------------
+# Redirects from the Gatsby site's URLs.
+#
+# The old build generated a page per technology tag. Those are indexed, so they
+# get pointed at the filtered view rather than 404ing — a 301 keeps whatever
+# ranking they had and stops inbound links dying.
+# ---------------------------------------------------------------------------
+
+[[redirects]]
+  from = "/project/Shopify"
+  to = "/projects?tag=shopify"
+  status = 301
+
+[[redirects]]
+  from = "/project/React"
+  to = "/projects?tag=react"
+  status = 301
+
+[[redirects]]
+  from = "/project/Gatsby"
+  to = "/projects?tag=gatsby"
+  status = 301
+
+[[redirects]]
+  from = "/project/Liquid"
+  to = "/projects?tag=liquid"
+  status = 301
+
+[[redirects]]
+  from = "/project/CSS"
+  to = "/projects?tag=css"
+  status = 301
+
+[[redirects]]
+  from = "/project/HTML5"
+  to = "/projects?tag=html5"
+  status = 301
+
+[[redirects]]
+  from = "/project/Javascript"
+  to = "/projects?tag=javascript"
+  status = 301
+
+[[redirects]]
+  from = "/project/Headless%20CMS"
+  to = "/projects?tag=headless-cms"
+  status = 301
+
+[[redirects]]
+  from = "/project/Wordpress%20Site"
+  to = "/projects?tag=wordpress-site"
+  status = 301
+
+[[redirects]]
+  from = "/project/Netlify%20for%20Deploy"
+  to = "/projects?tag=netlify-for-deploy"
+  status = 301
+
+# Anything else under the old /project/* prefix, including the entries whose
+# slug was a full URL, lands on the work index rather than a dead end.
+[[redirects]]
+  from = "/project/*"
+  to = "/projects"
+  status = 301

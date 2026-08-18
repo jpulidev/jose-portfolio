@@ -82,8 +82,6 @@ export default function ProjectsFilter({ activeProject }) {
       }
     }
   `);
-  console.clear();
-
   const projectsWithCounts = countProjectsinWorks(works.nodes);
   // Get a list of all the Project with their Projects
   // count hoy many project are

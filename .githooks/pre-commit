@@ -1,0 +1,18 @@
+#!/bin/sh
+# Formats and lints staged files in web/ before they land.
+#
+# Enable once per clone:   git config core.hooksPath .githooks
+#
+# Scoped to web/ deliberately: gatsby/ is the legacy build being replaced and
+# reformatting it would produce a huge, meaningless diff.
+
+staged_web=$(git diff --cached --name-only --diff-filter=ACM | grep '^web/' || true)
+[ -z "$staged_web" ] && exit 0
+
+cd web || exit 0
+
+if ! npx --no-install lint-staged; then
+  echo ""
+  echo "pre-commit failed. Fix the issues above, or commit with --no-verify to skip."
+  exit 1
+fi

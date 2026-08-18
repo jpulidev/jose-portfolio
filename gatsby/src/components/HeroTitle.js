@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import Aos from 'aos/dist/aos.cjs';
 import { FirstTitle } from '../styles/FistTitle';
 import { TwoGridSection } from '../styles/TwoGridSection';
-import SEO from './SEO';
 import homeimage from '../assets/images/josepulido.jpg';
 import 'aos/dist/aos.css';
 
@@ -13,9 +12,7 @@ export default function Hero() {
   }, []);
   return (
     <div>
-      <SEO>
-        <title>Welcome 🥑</title>
-      </SEO>
+      {/* Page metadata lives on the page (src/pages/index.js), not here. */}
       <TwoGridSection>
         <img src={homeimage} alt="Jose Pulido" />
         <FirstTitle data-aos="fade-up" data-aos-delay="50">
